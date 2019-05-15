@@ -1,15 +1,18 @@
 package com.example.webdevsu19austenkeeneserverjava.models;
 
 public class User {
-    private long id;
+    private String id;
     private String username;
     private String password;
     private String firstName;
     private String lastName;
-    public long getId() {
+    private String role;
+    private String dob;
+
+    public String getId() {
         return id;
     }
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
     public String getUsername() {
@@ -36,21 +39,37 @@ public class User {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
-    public User(String username, String password, String firstName, String lastName) {
-        this.username = username;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public String getRole() {
+        return role;
+    }
+    public void setRole(String role) {
+        this.role = role;
+    }
+    public String getDob() {
+        return dob;
+    }
+    public void setDob(String dob) {
+        this.dob = dob;
     }
 
     public User() {}
 
-    public User(long id, String username, String password, String firstName, String lastName) {
+    public User(String username, String password, String firstName, String lastName, String role, String dob) {
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.role = role;
+        this.dob = dob;
+    }
+
+    public User(String id, String username, String password, String firstName, String lastName, String role, String dob) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.role = role;
+        this.dob = dob;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.webdevsu19austenkeeneserverjava.controllers;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,10 +15,10 @@ import com.example.webdevsu19austenkeeneserverjava.models.User;
 
 @RestController
 public class UserController {
-    private List<User> users = Arrays.asList(
-            new User(1, "superman", "1234", "Clark", "Kent"),
-            new User(2, "black panther", "12345", "King", "T'Challa"),
-            new User(3, "wonder woman", "123456", "Diana", "Prince"));
+    private List<User> users = new ArrayList<>(Arrays.asList(
+            new User("1", "superman", "1234", "Clark", "Kent", "Student", "2009-11-12"),
+            new User("2", "black panther", "12345", "King", "T'Challa", "Faculty", "2009-12-12"),
+            new User("3", "wonder woman", "123456", "Diana", "Prince", "Admin", "2009-01-12")));
 
     @GetMapping("/users")
     public List<User> findAllUsers() {
@@ -25,11 +26,11 @@ public class UserController {
     }
 
     @GetMapping("/users/{userId}")
-    public User getUserById(@PathVariable("userId") int userId) {
+    public User getUserById(@PathVariable("userId") String userId) {
         User u = null;
 
         for(User user : users) {
-            if(user.getId() == userId) {
+            if(user.getId().equals(userId)) {
                 u = user;
             }
         }
@@ -38,11 +39,11 @@ public class UserController {
     }
 
     @DeleteMapping("/users/{userId}")
-    public List<User> deleteUser(@PathVariable("userId") int userId) {
+    public List<User> deleteUser(@PathVariable("userId") String userId) {
         User u = null;
 
         for(User user : users) {
-            if(user.getId() == userId) {
+            if(user.getId().equals(userId)) {
                 u = user;
             }
         }
@@ -56,11 +57,11 @@ public class UserController {
     }
 
     @PostMapping("/users/{userId}")
-    public List<User> updateUser(@PathVariable("userId") int userId, @RequestBody User newUser) {
+    public List<User> updateUser(@PathVariable("userId") String userId, @RequestBody User newUser) {
         User u = null;
 
         for(User user : users) {
-            if(user.getId() == userId) {
+            if(user.getId().equals(userId)) {
                 u = user;
             }
         }
