@@ -31,7 +31,7 @@ function UserService() {
             method: 'GET'
         }).then(function(response) {
             return response.json();
-        })
+        });
     };
 
     this.findUserById = function (userId) {
