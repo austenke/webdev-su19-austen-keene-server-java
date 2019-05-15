@@ -83,10 +83,8 @@
     }
 
     function editUser() {
-        console.log("FOOOOO")
         const editBtn = $(event.currentTarget);
         const user = JSON.parse(editBtn.attr('user'));
-        console.log("User val is: " + JSON.stringify(user));
         $usernameFld.val(user.username);
         $passwordFld.val(user.password);
         $firstNameFld.val(user.firstName);
@@ -122,7 +120,6 @@
     }
 
     function deleteUser(event) {
-        console.log("SDJFHSDKJHF")
         const deleteBtn = $(event.currentTarget);
         userService.deleteUser(deleteBtn.attr('id')).then(renderUsers);
     }
