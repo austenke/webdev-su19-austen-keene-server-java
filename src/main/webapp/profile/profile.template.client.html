@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="profile.style.client.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="profile.template.client.js"></script>
+
+<div class="container">
+    <h1>Profile</h1>
+    <div class="alert alert-success" id="success">
+        Profile successfully saved!
+    </div>
+    <form>
+        <div class="form-group row">
+            <label for="username" class="col-sm-2 col-form-label">
+                Username </label>
+            <div class="col-sm-10">
+                <input class="form-control" id="username" value="Superman123" disabled>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="phone" class="col-sm-2 col-form-label">
+                Phone</label>
+            <div class="col-sm-10">
+                <input class="form-control" id="phone"  placeholder="(123)-123-1234">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="email" class="col-sm-2 col-form-label">
+                Email</label>
+            <div class="col-sm-10">
+                <input class="form-control" id="email"  placeholder="123@gmail.com">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="role" class="col-sm-2 col-form-label">
+                Role</label>
+            <div class="col-sm-10">
+                <select class="form-control" id="role">
+                    <option value="faculty">Faculty</option>
+                    <option value="student">Student</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="dob" class="col-sm-2 col-form-label">
+                Date of Birth</label>
+            <div class="col-sm-10">
+                <input class="form-control" id="dob" type="date" placeholder="mm/dd/yy">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <button type="button" onclick="showSuccess()" class="btn btn-success btn-block">Update</button>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <button class="btn btn-danger btn-block">Logout</button>
+                <a class="btn btn-danger btn-block" href="../home/home.template.client.html">Logout</a>
+            </div>
+        </div>
+    </form>
+</div>
