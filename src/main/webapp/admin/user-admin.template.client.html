@@ -1,0 +1,69 @@
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../services/user.service.client.js"></script>
+
+<div class="container-fluid">
+    <h1 id="title">User Admin</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Password</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Role</th>
+                <th>DOB</th>
+                <th>&nbsp;</th>
+            </tr>
+            <tr>
+                <th>
+                    <input class="form-control" id="usernameFld" placeholder="username"/>
+                </th>
+                <th>
+                    <input class="form-control" id="passwordFld" placeholder="password"/>
+                </th>
+                <th>
+                    <input class="form-control" id="firstNameFld" placeholder="first name"/>
+                </th>
+                <th>
+                    <input class="form-control" id="lastNameFld" placeholder="last name"/>
+                </th>
+                <th>
+                    <select class="form-control" id="roleFld">
+                        <option>Faculty</option>
+                        <option>Student</option>
+                        <option>Admin</option>
+                    </select>
+                </th>
+                <th>
+                    <input class="form-control" id="dobFld" type="date"/>
+                </th>
+                <th>
+                    <button id="wbdv-update" class="btn btn-success">Update</button>
+                    <button id="wbdv-create" class="btn btn-primary">Create</button>
+                </th>
+            </tr>
+            <tr class="userRowTemplate d-none">
+                <td class="usernameCol">alice</td>
+                <td class="passwordCol">****</td>
+                <td class="firstNameCol">Alice</td>
+                <td class="lastNameCol">Wonderland</td>
+                <td class="roleCol">Faculty</td>
+                <td class="dobCol">11/22/1968</td>
+                <td>
+                    <button class="btn deleteBtn btn-danger">Delete</button>
+                    <button class="btn editBtn btn-warning">Edit</button>
+                </td>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+
+</div>
+
+<script src="user-admin.component.client.js"></script>
