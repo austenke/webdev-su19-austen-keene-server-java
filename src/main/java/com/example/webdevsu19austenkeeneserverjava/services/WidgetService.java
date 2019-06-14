@@ -1,9 +1,10 @@
 package com.example.webdevsu19austenkeeneserverjava.services;
 
 import com.example.webdevsu19austenkeeneserverjava.models.Widget;
+import com.example.webdevsu19austenkeeneserverjava.repositories.WidgetRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -77,6 +78,8 @@ public class WidgetService {
     }
 
     public Widget updateWidget(Integer wid, Widget widget) {
+
+
         for (int i = 0; i < widgets.size(); i++) {
             Widget w = widgets.get(i);
             if (w.getId().equals(wid)) {
@@ -87,8 +90,15 @@ public class WidgetService {
         return widget;
     }
 
-    public List<Widget> deleteWidget(Widget w) {
-        widgets = widgets.stream().filter(widget -> !widget.getId().equals(w.getId())).collect(Collectors.toList());
+    public List<Widget> deleteWidget(Integer wid) {
+        List<Widget> matchingWidgets = widgets.stream().filter(widget -> widget.getId().equals(wid)).collect(Collectors.toList());
+
+        if (matchingWidgets.size() == 0 || matchingWidgets.size() > 1) {
+            throw new IllegalArgumentException("Cannot delete widget " + wid + ", " + matchingWidgets.size() + " widgets found");
+        }
+
+        Widget w = matchingWidgets.get(0);
+        widgets = widgets.stream().filter(widget -> !widget.getId().equals(wid)).collect(Collectors.toList());
 
         for (Widget widget : widgets) {
             if (widget.getOrder() > w.getOrder()) {
