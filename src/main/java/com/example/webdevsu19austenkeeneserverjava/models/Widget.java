@@ -1,5 +1,9 @@
 package com.example.webdevsu19austenkeeneserverjava.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="widgets")
 public class Widget {
 
     public enum WidgetType {
@@ -11,9 +15,12 @@ public class Widget {
     }
 
     private String name;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private WidgetType type;
-    private Integer order;
+    private Integer widgetOrder;
     private String text;
     private String url;
     private Integer size;
@@ -33,7 +40,7 @@ public class Widget {
         this.name = name;
         this.id = id;
         this.type = type;
-        this.order = order;
+        this.widgetOrder = order;
         this.text = text;
         this.url = url;
         this.size = size;
@@ -71,11 +78,11 @@ public class Widget {
     }
 
     public Integer getOrder() {
-        return order;
+        return widgetOrder;
     }
 
     public void setOrder(Integer order) {
-        this.order = order;
+        this.widgetOrder = order;
     }
 
     public String getText() {
